@@ -1,0 +1,28 @@
+#spring:
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/VuLanTuong/config-server
+#          default-label: main
+#        bootstrap: false
+#    gateway:
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: "http://localhost:3000"
+#            allowedHeaders: "*"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - PUT
+#              - DELETE
+#      routes:
+#        - id: Order
+#          uri: http://localhost:8081
+#          predicates:
+#            - Path=/api/v2/**
+#        - id: CustomerInfo
+#          uri: http://localhost:8082
+#          predicates:
+#            - Path=/api/v1/**
